@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="ezWaiting.NotePage"
+             xmlns:i18n="clr-namespace:ezWaiting"
+                 Padding="20,0,20,0">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Grid BackgroundColor="White" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Label Text="{i18n:Translate Note}" FontSize="Large" TextColor="#1976D2"  HorizontalOptions="Center" Grid.Row="0"/>
+            <Entry Text="{Binding .}" Completed="OnCompleted" BackgroundColor="White" Grid.Row="1"
+                      TextColor="Black" Keyboard="Default" Placeholder="{i18n:Translate notePlaceholder}" />
+        </Grid>
+    </Grid>
+
+</pages:PopupPage>

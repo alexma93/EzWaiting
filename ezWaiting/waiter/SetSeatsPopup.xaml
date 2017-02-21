@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="ezWaiting.SetSeatsPopup"
+             xmlns:i18n="clr-namespace:ezWaiting"
+             Padding="20,0,20,0">
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="7*" />
+      <RowDefinition Height="6*" />
+      <RowDefinition Height="7*" />
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" Grid.Row="1" Padding="7,7,7,7">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
+        <Label Text="{i18n:Translate Seats}" FontSize="Large" TextColor="#1976D2"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"/>
+        <Label Text="{Binding Table.Seats,StringFormat={i18n:Translate MaxSeats}}" FontSize="Small" TextColor="#1976D2"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+      </StackLayout>
+      <Stepper Increment="1" Minimum="1" Grid.Row="1" Grid.ColumnSpan="2" Maximum="{Binding MaxSeats}" Value="{Binding Seats}" ValueChanged="StepperChanged" />
+      <Label Text="{Binding Seats}" Grid.Row="1" Grid.Column="1" FontSize="Large" TextColor="#1976D2" FontAttributes="Bold"
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+      <Button Text="{i18n:Translate Ok}" Clicked="OnOKClicked" BackgroundColor="#E0E0E0" TextColor="Black" Grid.Row="2" Grid.Column="0"/>
+      <Button Text="{i18n:Translate Cancel}" Clicked="OnCancelClickedAsync" BackgroundColor="#E0E0E0" TextColor="Black" Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+  </Grid>
+
+</pages:PopupPage>

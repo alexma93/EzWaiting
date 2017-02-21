@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ezWaiting.LoginPage"
+             BackgroundColor="White"
+             xmlns:i18n="clr-namespace:ezWaiting"
+             Title="EzWaiting">
+    <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+        <Label Text="{i18n:Translate Username}" />
+        <Entry x:Name="UserEntry" Text="{Binding Username}" TextChanged="TextChangedUsername"/>
+        <Label Text="{i18n:Translate Password}" />
+        <Entry  x:Name="PassEntry" Text="{Binding Password}" IsPassword="true" TextChanged="TextChangedPassword"/>
+        <Button Text="Login" Clicked="OnLoginClicked" IsEnabled="False" x:Name="Login" TextColor="Black" BackgroundColor="#E0E0E0" />
+    </StackLayout>
+
+</ContentPage>

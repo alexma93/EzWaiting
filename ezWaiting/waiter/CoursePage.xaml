@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ezWaiting.CoursePage"
+             BackgroundColor="#1976D2"
+             xmlns:i18n="clr-namespace:ezWaiting">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="OrdersList" ItemsSource="{Binding .Orders}" ItemSelected="OnSelection" RowHeight="62" 
+              Grid.Row="0" Grid.Column="0"  Margin="0,5,0,0" BackgroundColor="White">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnOpenAllergens" CommandParameter="{Binding Dish}" Text="{i18n:Translate Allergens}" />
+                            <MenuItem Clicked="OnOpenIngredients" CommandParameter="{Binding Dish}" Text="{i18n:Translate Ingredients}" />
+                        </ViewCell.ContextActions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Dish.Image}" Grid.Column="0" Margin="5,0,0,0"/>
+                            <Label Text="{Binding Dish.Name}" Grid.Column="1" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Quantity,StringFormat=' x {0}'}"  Grid.Column="2" TextColor="Black" VerticalOptions="CenterAndExpand" FontSize="17" FontAttributes="Bold"/>
+                            <Label Text="{Binding Variation}" Grid.Column="3" TextColor="Black" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Price,StringFormat='{0} €'}" Grid.Column="4" Margin="0,0,2,0" TextColor="Black" 
+                                   VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontSize="17" FontAttributes="Bold"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="1" VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="DeleteButton" Text="{i18n:Translate Delete}" TextColor="Black" BackgroundColor="#E0E0E0" Clicked="OnDeleteClicked"  VerticalOptions="Start" Grid.Column="0" Margin="20,0,20,0" />
+            <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding Total,StringFormat={i18n:Translate TotalNum}}" FontSize="Large" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="{Binding Note,StringFormat={i18n:Translate NoteNum}}" FontSize="Medium" TextColor="White"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

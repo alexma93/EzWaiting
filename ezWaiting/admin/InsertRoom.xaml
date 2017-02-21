@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ezWaiting.admin.InsertRoom"
+             xmlns:i18n="clr-namespace:ezWaiting">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+
+            <Label Text="{i18n:Translate RoomName}" />
+            <Entry x:Name="roomName" Placeholder="{i18n:Translate RoomNamePlaceholder}" TextChanged="TextChanged"/>
+
+            <Label Text="{i18n:Translate Height}" />
+            <Entry Keyboard="Numeric" x:Name="Height" Placeholder="{i18n:Translate Height}" TextChanged="TextChanged"/>
+            <Label Text="{i18n:Translate Width}" />
+            <Entry Keyboard="Numeric" x:Name="Width" Placeholder="{i18n:Translate Width}" TextChanged="TextChanged"/>
+            <Button x:Name="Create" Text="{i18n:Translate Create}" Clicked="OnCreateClickedAsync" IsEnabled="False" TextColor="Black" BackgroundColor="#E0E0E0"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="ezWaiting.admin.CreateTablePopup"
+             xmlns:i18n="clr-namespace:ezWaiting"
+             Padding="20,0,20,0">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="3*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="3*" />
+    </Grid.RowDefinitions>
+    <Grid BackgroundColor="White" Grid.Row="1"  Padding="5,5,5,5">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Label Text="{i18n:Translate SetTable}" FontSize="Large" TextColor="#1976D2"  HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2"/>
+      <Entry Text="{Binding Name}" Grid.Row="1" Placeholder="{i18n:Translate NamePlaceholder}" Grid.ColumnSpan="2" TextChanged="TextChanged"/>
+      <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+        <Stepper Increment="1" Minimum="1" Value="{Binding Seats}" ValueChanged="StepperChanged"/>
+        <Label Text="{Binding Seats}" FontSize="Large" TextColor="#1976D2" FontAttributes="Bold"
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+      </StackLayout>
+      <Button x:Name="OkButton" Text="{i18n:Translate Ok}" Clicked="OnCompleted" IsEnabled="false" BackgroundColor="#E0E0E0" TextColor="Black" Grid.Row="3" Grid.Column="0"/>
+      <Button Text="{i18n:Translate Cancel}" Clicked="OnCancel" BackgroundColor="#E0E0E0" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+    </Grid>
+  </Grid>
+</pages:PopupPage>
